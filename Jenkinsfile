@@ -3,18 +3,18 @@ pipeline {
 
     stages {
         stage('Build') {
-            steps {
-                echo 'Building application...'
-                bat 'python -m py_compile app.py test_app.py'
-            }
+        steps {
+            echo 'Checking Python syntax...'
+            bat '"C:\\Users\\anish\\AppData\\Local\\Python\\bin\\python.exe" -m py_compile app.py test_app.py'
         }
+}
 
         stage('Test') {
-            steps {
-                echo 'Testing application...'
-                bat 'python test_app.py'
-            }
+        steps {
+            echo 'Running application tests...'
+            bat '"C:\\Users\\anish\\AppData\\Local\\Python\\bin\\python.exe" test_app.py'
         }
+}
 
         stage('Deploy') {
             steps {
